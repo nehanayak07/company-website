@@ -1,15 +1,12 @@
-# Node modules
+# Node
 node_modules/
 
-# Environment variables
+# Builds
+build/
+dist/
+
+# Env
 .env
 
-# Docker volumes / local data
-mysql_data/
-
-# Logs
+# Docker
 *.log
-
-# OS files
-.DS_Store
-Thumbs.db
