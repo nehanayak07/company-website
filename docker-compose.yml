@@ -30,8 +30,19 @@ services:
     image: ${DOCKERHUB_USER}/${FRONTEND_IMAGE}:${BUILD_TAG}
     container_name: company-website-frontend
     ports:
+      - "8083:80"
+    depends_on:
+      - backend
+
+  nginx:
+    image: nginx:alpine
+    container_name: company-website-nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
       - "8081:80"
     depends_on:
+      - frontend
       - backend
 
 volumes:
